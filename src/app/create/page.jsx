@@ -8,6 +8,7 @@ export default function CreatePostPage(){
   const [img, setImg] = useState("");
   const [content, setContent] = useState("");
   const router = useRouter();
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,7 +19,7 @@ export default function CreatePostPage(){
     try {
       const res = await fetch("http://localhost:3000/api/posts",
         {
-          method:POST,
+          method:"POST",
           headers: { "Content-Type": "application/json"},
           body: JSON.stringify({title, img, content})
         }
@@ -45,7 +46,6 @@ export default function CreatePostPage(){
         <input onChange={(e) => setImg(e.target.value)} type="text" className='w-[300px] block bg-gray-200 border py-3 px-3 rounded text-lg my-2' placeholder='Post Img URL'/>
         <textarea onChange={(e) => setContent(e.target.value)} name="" id="" className='w-[300px] block bg-gray-200 border py-3 px-3 rounded text-lg my-2' placeholder='Enter Your Content'></textarea>
         <button type='submit' className='bg-green-500 text-white border py-2 px-3 rounded text-lg my-2'>Create Post</button>
-
       </form>
     </div>
   )
