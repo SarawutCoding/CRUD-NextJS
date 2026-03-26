@@ -4,6 +4,27 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 export default function Home() {
   const [postData, setPostdata] = useState({});
+  const getPosts = async () => {
+    try {
+      const res = await fetch("http://localhost:3000/api/posts", {
+        method: "GET",
+        cache: "no-store"
+      });
+      if (!res.ok) {
+        throw new Error("Error!!!!!");
+      }
+      const data = await res.json();
+      setPostdata(data.posts);
+    } catch (error) {
+      console.log(error);
+    }
+    
+  }
+  useEffect(() => {
+    getPosts();
+  }, []);
+
+  console.log(postData);
   return (
     <div>
       <main className="container mx-auto my-3">

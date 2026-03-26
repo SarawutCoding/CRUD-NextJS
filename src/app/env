@@ -1,0 +1,5 @@
+URLMongoDB = 'mongodb+srv://kenny:Bihbk4EGAj6JwqxZ@cluster0.olj3q.mongodb.net/spec?retryWrites=true&w=majority&appName=Cluster0'
+PORT = 5000
+URL_KNN = "https://ml-knn-speccom.onrender.com/predict"
+URL_GET_KNN = 'https://ml-knn-speccom.onrender.com/'
+KEY_Session = 'KennyKey'
