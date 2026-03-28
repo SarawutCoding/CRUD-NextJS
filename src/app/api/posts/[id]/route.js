@@ -20,6 +20,13 @@ export async function PUT(req , {params}) {
 export async function DELETE(req , {params}) {
     const {id} = await params;
     await connectMongoDB();
-    await Post.deleteOne(id);
+    await Post.deleteOne({_id : id});
+    return NextResponse.json({message:"Post Delete"}, {status:200});
+}
+
+export async function DELETE(req) {
+    const {id} = req.nextUrl.searchParams.get("id");
+    await connectMongoDB();
+    await Post.deleteOne({_id : id});
     return NextResponse.json({message:"Post Delete"}, {status:200});
 }

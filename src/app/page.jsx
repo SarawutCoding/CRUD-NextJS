@@ -2,6 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import DeleteBtn from "./componete/DeleteBtn";
+
 export default function Home() {
   const [postData, setPostdata] = useState({});
   const getPosts = async () => {
@@ -39,7 +41,7 @@ export default function Home() {
                 <p>{val.content}</p>
                 <div className="mt-5">
                   <Link className="bg-gray-500 text-white border py-2 px-3 rounded-md text-lg my-2" href={`/edit/${val._id}`}>Edit</Link>
-                  <Link className="bg-red-500 text-white border py-2 px-3 rounded-md text-lg my-2" href={`/delete/${val._id}`}>Delete</Link>
+                  <DeleteBtn id={val._id}/>
                 </div>
               </div>
             ))
